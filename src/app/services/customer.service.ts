@@ -1,0 +1,39 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Customer } from '../models/customer.model';
+import {environment} from '../../environments/environment.dev'
+@Injectable({
+  providedIn: 'root'
+})
+export class CustomerService {
+
+  constructor(private httpClient:HttpClient) { }
+
+  getCustomers(){
+    let url = environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_ALL_CUSTOMERS;
+    return this.httpClient.get(url);
+  }
+
+  saveCustomer(newCustomer:Customer){
+    let url = environment.CUSTOMER_BASE_URL+environment.CUSTOMER.POST_CUSTOMER;
+    return this.httpClient.post(url,newCustomer);
+  }
+
+  viewCustomer(id:string){
+    let url = environment.CUSTOMER_BASE_URL+environment.CUSTOMER.GET_CUSTOMER+"?id="+id;
+    return this.httpClient.get(url);
+    
+  }
+
+  editCustomer(id:string,customerObj:Customer){
+    
+  }
+
+  deleteCustomer(id:string){
+    
+  }
+
+  searchCustomer(keyword:string){
+    
+  }
+}
