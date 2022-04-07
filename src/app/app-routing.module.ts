@@ -21,7 +21,9 @@ const routes: Routes = [
   { path: 'loan-types', loadChildren: () => import('./loan-types/loan-types.module').then(m => m.LoanTypesModule) },
   { path: 'reports', loadChildren: () => import('./reports/reports.module').then(m => m.ReportsModule) },
   { path: 'activity-audit', loadChildren: () => import('./audit-logs/audit-logs.module').then(m => m.AuditLogsModule) },
+  { path: '', redirectTo:'/login',pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
+  
 
 ];
 
