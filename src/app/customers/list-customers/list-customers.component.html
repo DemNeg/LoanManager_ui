@@ -1,5 +1,5 @@
 <div class="mt-5 mb-5 ml-4 mr-4 d-flex">
-    <h3 class="m-2">Customers</h3> <button type="button" class="btn btn-primary btn-sm">Add New Customer</button>
+    <h3 class="m-2">Customers</h3> <button type="button" class="btn btn-primary btn-sm" [routerLink]="['add']">Add New Customer</button>
 </div>
 <div class="card">
     <div class="card-body">
@@ -18,76 +18,47 @@
                 <thead class="bg-primary text-white">
                     <tr>
                         <th><input type="checkbox" class="custom-control-input" id="customCheckall"></th>
-                        <th>CustomerID</th>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
+                        <th>Customer ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Phone Number</th>
                         <th>Email Address</th>
-                        <th>Address</th>
+                        <th>Date of birth</th>
                         <th>Department</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let customer of customerList">
                         <th><input type="checkbox" class="custom-control-input" id="customCheck1"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
+                        <td>{{ customer._id }}</td>
+                        <td>{{ customer.firstName }}</td>
+                        <td>{{ customer.lastName }}</td>
+                        <td>{{ customer.phoneNumber }}</td>
+                        <td>{{ customer.emailAddress }}</td>
+                        <td>{{ customer.dob }}</td>
+                        <td>{{ customer.department }}</td>
+                        <td>
+                            <!-- Call to action buttons -->
+                            <ul class="list-inline m-0"> 
+                                <li class="list-inline-item">
+                                    <button class="btn btn-warning btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="view detail" [routerLink]="['view',customer._id]">
+                                        <i class="bi bi-ticket-detailed"></i>
+                                    </button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" [routerLink]="['delete',customer._id]"><i class="bi bi-archive"></i></button>
+                                </li>
+                            </ul>
+                        </td>
                     </tr>
-                    <tr>
-                        <th><input type="checkbox" class="custom-control-input" id="customCheck2"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
-                    </tr>
-                    <tr>
-                        <th><input type="checkbox" class="custom-control-input" id="customCheck3"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
-                    </tr>
-                    <tr>
-                        <th><input type="checkbox" class="custom-control-input" id="customCheck4"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
-                    </tr>
-                    <tr>
-                        <th><input type="checkbox" class="custom-control-input" id="customCheck5"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
-                    </tr>
-                    <tr>
-                        <th><input type="checkbox" class="custom-control-input" id="customCheck6"></th>
-                        <td>1234</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>61546584</td>
-                        <td>@mark</td>
-                        <td>New york</td>
-                        <td>New york</td>
-                    </tr>
+                   
             </table> 
             <nav aria-label="...">
                 <ul class="pagination">
