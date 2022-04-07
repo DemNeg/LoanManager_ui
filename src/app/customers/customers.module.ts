@@ -8,6 +8,9 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { DeleteCustomerComponent } from './delete-customer/delete-customer.component';
 import { SearchCustomerComponent } from './search-customer/search-customer.component';
+import { ViewCustomerComponent } from './view-customer/view-customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AddcustomerSuccessComponent } from './add-customer/addcustomer-success/addcustomer-success.component';
 
 
 @NgModule({
@@ -17,11 +20,14 @@ import { SearchCustomerComponent } from './search-customer/search-customer.compo
     AddCustomerComponent,
     EditCustomerComponent,
     DeleteCustomerComponent,
-    SearchCustomerComponent
+    SearchCustomerComponent,
+    ViewCustomerComponent,
+    AddcustomerSuccessComponent
   ],
   imports: [
     CommonModule,
-    CustomersRoutingModule
+    CustomersRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CustomersModule { }
