@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-delete-customer',
@@ -7,30 +8,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./delete-customer.component.css']
 })
 export class DeleteCustomerComponent {
-  /*customerId: string = '';
+  customerId: string = '';
   resultData: any;
-  deleteCustomerDialogue:boolean=false;
+ 
   
 
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private customerService: CustomerService,
+  private router: Router) { }
 
   ngOnInit(): void {
-    console.log("Hello");
-    
-    this.activatedRoute.params.subscribe(data =>{
+    this.activatedRoute.params.subscribe((data:any) =>{
       this.customerId = data.id
       if (this.customerId) {
-        this.deleteCustomerPop();
+        this.deleteCustomer();
       }
     })
   }
 
-  deleteCustomerPop(){
-    this.deleteCustomerDialogue= true
+  deleteCustomer() {
+    confirm("are you sure to delete this customer?");
+    this.customerService.deleteCustomer(this.customerId).subscribe(data => {
+      this.resultData=data;
+      this.router.navigateByUrl('/customers');
+    }); 
   }
-
-  deleteCustomerConfirm(){
-    console.log("sucess ...");
-    
-  }*/
 }
