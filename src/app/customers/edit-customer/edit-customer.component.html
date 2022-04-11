@@ -1,1 +1,76 @@
-<p>edit-customer works!</p>
+<section class="vh-100">
+    <div class="container py-3 h-100">
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Edit Customer</h3>
+                        <form [formGroup]="editForm">
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control form-control-lg"
+                                            formControlName="firstName" placeholder="First Name" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control form-control-lg"
+                                            formControlName="lastName" placeholder="Last Name" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <input type="email" class="form-control form-control-lg"
+                                            formControlName="emailAddress" placeholder="Email" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <input type="tel" class="form-control form-control-lg"
+                                            formControlName="phoneNumber" placeholder="Phone Number" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <input type="date" class="form-control form-control-lg" formControlName="dob"
+                                            placeholder="Date of birth" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <input type="text" class="form-control form-control-lg"
+                                            formControlName="department" placeholder="Name of Department" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-4 pt-2">
+                                <button class="btn btn-warning btn-lg" type="submit"
+                                    [disabled]="!this.editForm.valid" (click)="onUpdateCustomer()">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
