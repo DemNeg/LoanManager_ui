@@ -26,11 +26,15 @@ export class CustomerService {
   }
 
   editCustomer(id:string,customerObj:Customer){
-    
+    let url = environment.CUSTOMER_BASE_URL + environment.CUSTOMER.UPDATE_CUSTOMER+"?id="+id;
+    console.log(customerObj);
+    return this.httpClient.put(url, customerObj);
   }
 
   deleteCustomer(id:string){
-    
+    let url = environment.CUSTOMER_BASE_URL + environment.CUSTOMER.DELETE_CUSTOMER+'?id='+id;
+    console.log(url);
+    return this.httpClient.delete(url);
   }
 
   searchCustomer(keyword:string){
